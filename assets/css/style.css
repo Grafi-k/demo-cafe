@@ -1,0 +1,575 @@
+/* ===== Reset básico ===== */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0; 
+  padding: 0; 
+  color: #333;
+}
+
+h1, h2, h3 {
+  font-weight: 800;
+}
+
+p {
+  font-weight: 300;
+}
+
+/* ===== Header de navegación (Estilo Agencia Boutique) ===== */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%); /* Degradado sutil inicial */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  z-index: 1000;
+  transition: all 0.4s ease;
+}
+
+/* Navbar al hacer scroll (Efecto Glassmorphism / Cristal esmerilado) */
+.navbar.scrolled {
+  background: rgba(30, 24, 21, 0.85); /* Tono café oscuro translúcido elegante */
+  backdrop-filter: blur(10px);        /* Desenfoque de fondo moderno */
+  -webkit-backdrop-filter: blur(10px);
+  padding: 15px 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(196, 155, 99, 0.15);
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo span {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #ffffff; /* Blanco limpio para que resalte elegante */
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* Menú */
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ítems */
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+/* Efecto de línea dorada elegante al pasar el cursor */
+.navbar .nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #c49b63;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #c49b63;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+
+/* ===== Hero principal Pro (Estilo Agencia Boutique) ===== */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('../img/hero-cafe-gfk.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: white;
+  text-shadow: none; /* Quitamos la sombra vieja y usamos el gradiente oscuro superior para mejor lectura */
+  padding-left: 80px;
+  background-attachment: fixed;
+}
+
+.hero h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 25px;
+  color: #f3f3f3;
+}
+
+.hero button {
+  margin-top: 0;
+  padding: 14px 28px;
+  background: #c49b63;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(196, 155, 99, 0.4);
+  align-self: flex-start;
+}
+
+.hero button:hover {
+  background: #a67c52;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(196, 155, 99, 0.6);
+}
+
+
+/* ===== Especialidades estilo Apple TV Centradas y Grandes (Corregido) ===== */
+.productos {
+  padding: 100px 20px;
+  background: #121212;
+  text-align: center;
+}
+
+.productos h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+
+/* Contenedor con más espacio arriba para que el zoom no choque */
+.grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 25px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  max-width: 1350px;
+  margin: 0 auto;
+  /* IMPORTANTE: Aumentamos el padding superior a 40px para darle "aire" al zoom */
+  padding: 40px 20px 40px 20px; 
+  justify-content: center;
+}
+
+/* Ocultar barra de scroll */
+.grid::-webkit-scrollbar {
+  height: 6px;
+}
+.grid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+.grid::-webkit-scrollbar-thumb {
+  background: #c49b63;
+  border-radius: 4px;
+}
+
+.card {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+  text-align: left;
+  background: #1e1e1e;
+  padding: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  
+  /* CLAVE EXTRA: Ayuda a que el renderizado de la tarjeta en movimiento sea fluido en Mac */
+  will-change: transform; 
+}
+
+/* Efecto zoom y elevación libre */
+.card:hover {
+  transform: scale(1.06) translateY(-8px); /* Subió un poquito más para despegarse bien */
+  box-shadow: 0 25px 50px rgba(0,0,0,0.85);
+  border-color: rgba(196, 155, 99, 0.6);
+  z-index: 50; /* Se asegura de flotar por encima de todo */
+}
+
+.card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.card h3, .card p {
+  padding: 0 18px;
+}
+
+.card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 18px 0 6px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #aaaaaa;
+  margin: 0 0 18px 0;
+  line-height: 1.4;
+}
+
+/* ===== Sobre nosotros ===== */
+.about {
+  background: url('../img/about-us-gfk.jpg') no-repeat center center/cover;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px 4px #000;
+  background-attachment: fixed; /* efecto parallax */
+}
+
+.about-content {
+  background: rgba(0,0,0,0.5);
+  padding: 20px 40px;
+  border-radius: 8px;
+}
+
+/* ===== Galería Café (carrusel auto-scroll) ===== */
+
+.galeria-cafe h2 {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 180px;
+  color: #2c221e;
+}
+
+.galeria-cafe {
+  padding: 80px 80px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+
+.slide {
+  min-width: 250px;
+  margin: 0 10px;
+}
+
+.slide img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* ajusta según cantidad de imágenes */
+}
+
+/* ===== Sección de Horarios y Ubicación Pro (Estilo Boutique) ===== */
+
+.horarios-ubicacion {
+  padding: 80px 20px;
+  background: #ffffff; /* Contraste limpio con la sección anterior */
+}
+
+.horarios-ubicacion h2 {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: #2c221e;
+}
+
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.horarios {
+  flex: 1 1 350px;
+  background: #fdfbf7; /* Fondo cálido a juego con la marca */
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(196, 155, 99, 0.2);
+  text-align: left;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+/* Espaciado elegante para los elementos de texto e iconos */
+.horarios p {
+  margin: 12px 0 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.horarios i {
+  font-size: 1.4rem;
+  color: #c49b63;
+  width: 28px;
+  text-align: center;
+}
+
+.map-container {
+  flex: 1 1 450px;
+  height: 350px; /* Altura controlada para que el mapa no se desborde */
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ===== Tira de imágenes profesional full-width ===== */
+.coffee-strip {
+  display: flex;
+  flex-wrap: nowrap;     /* Todas en una sola línea horizontal */
+  width: 100%;           /* Ocupa todo el ancho del viewport */
+  overflow: hidden;      /* Evita scroll horizontal no deseado */
+  gap: 0;                /* Sin espacio entre imágenes */
+}
+
+.coffee-item {
+  position: relative;
+  flex: 1 1 0;           /* CLAVE: Crecen y se encogen de forma equitativa ocupando el 100% */
+  height: 350px;         /* Altura fija uniforme para todas las fotos */
+  overflow: hidden;
+}
+
+.coffee-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* Recorta proporcionalmente para mantener el estilo */
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.coffee-item:hover .overlay {
+  opacity: 1;
+}
+
+.overlay a {
+  color: #fff;
+  font-size: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.overlay a:hover {
+  color: #c49b63; /* Tono dorado café */
+  transform: scale(1.2);
+}
+
+/* ===== Sección de contacto Pro (Estilo Boutique) ===== */
+
+.contact-section {
+  padding: 80px 20px;
+  background: #fdfbf7; /* Fondo sutilmente cálido, ideal para cafeterías */
+  color: #333;
+}
+
+.contact-section h2 {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #2c221e; /* Tono café oscuro elegante para títulos */
+}
+
+.contact-section > p {
+  text-align: center;
+  margin-bottom: 50px;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Tarjetas con estilo flotante (Card Design) */
+.contact-form, .contact-info {
+  flex: 1 1 400px;
+  max-width: 500px;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Sombra suave y profesional */
+  border: 1px solid rgba(196, 155, 99, 0.2); /* Sutil borde dorado */
+}
+
+.contact-form label {
+  display: block;
+  margin: 15px 0 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.contact-form input, 
+.contact-form textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1.5px solid #e1dcd6;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  background: #faf9f6;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+/* Efecto focus moderno en inputs */
+.contact-form input:focus, 
+.contact-form textarea:focus {
+  border-color: #c49b63;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(196, 155, 99, 0.15);
+}
+
+.contact-form button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 14px 20px;
+  background: #c49b63;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.contact-form button:hover {
+  background: #a67c52;
+  transform: translateY(-2px); /* Pequeño efecto de elevación al pasar el mouse */
+}
+
+.contact-info h3 {
+  margin-bottom: 20px;
+  color: #2c221e;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.contact-info p {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #555;
+  font-size: 1.05rem;
+}
+
+/* Iconos con el color de acento de la marca */
+.contact-info p i {
+  color: #c49b63;
+  font-size: 1.2rem;
+  width: 24px;
+  text-align: center;
+}
+
+
+/* ===== Footer ===== */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: white;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  color: #c49b63;
+}
