@@ -368,17 +368,15 @@ p {
 }
 
 .map-container {
-  flex: 1 1 450px;
-  height: 350px; /* Altura controlada para que el mapa no se desborde */
-  border: none;
-  border-radius: 16px;
+  width: 100%;
+  max-width: 100%;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
 }
 
 .map-container iframe {
   width: 100%;
-  height: 100%;
+  height: 350px; /* Controla la altura responsiva aquí */
   display: block;
 }
 
@@ -572,4 +570,174 @@ footer {
 
 .social-icons a:hover {
   color: #c49b63;
+}
+
+/* ==========================================================================
+   CORRECCIONES DE LAYOUT Y COMPONENTES
+   ========================================================================== */
+
+/* Botón Hamburguesa (Oculto en Desktop) */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.menu-toggle:hover {
+  color: #c49b63;
+}
+
+/* Ajuste de margen en Galería para evitar espacios blancos excesivos */
+.galeria-cafe h2 {
+  margin-bottom: 40px; /* Corregido de 180px a 40px */
+}
+
+/* ==========================================================================
+   BREAKPOINTS RESPONSIVOS (MEDIA QUERIES)
+   ========================================================================== */
+
+/* --- Tablets y Laptops Pequeñas (<= 992px) --- */
+@media screen and (max-width: 992px) {
+  .navbar {
+    padding: 15px 25px;
+  }
+
+  .menu-toggle {
+    display: block; /* Muestra el botón hamburguesa */
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(30, 24, 21, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    gap: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    border-bottom: 1px solid rgba(196, 155, 99, 0.2);
+    
+    /* Estado colapsado */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Estado desplegado por JS */
+  .nav-links.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .hero {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+}
+
+/* --- Smartphones y Móviles (<= 768px) --- */
+@media screen and (max-width: 768px) {
+  /* Hero */
+  .hero {
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero button {
+    align-self: center;
+  }
+
+  /* Especialidades / Grid */
+  .grid {
+    justify-content: flex-start; /* Evita que el primer elemento se corte a la izquierda */
+    padding: 20px 10px;
+  }
+
+  .card {
+    flex: 0 0 260px; /* Ancho ajustado para pantallas táctiles */
+  }
+
+  .card img {
+    height: 300px;
+  }
+
+  /* Sobre Nosotros */
+  .about {
+    height: auto;
+    padding: 80px 20px;
+    background-attachment: scroll; /* Desactiva el parallax en móviles para evitar tirones */
+  }
+
+  /* Galería */
+  .galeria-cafe {
+    padding: 50px 15px;
+  }
+
+  .slide img {
+    height: 200px;
+  }
+
+  /* Horarios y Ubicación */
+  .info {
+    flex-direction: column;
+  }
+
+  .horarios, .map-container {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  /* Contacto */
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .contact-form, .contact-info {
+    flex: 1 1 100%;
+    max-width: 100%;
+    padding: 25px;
+  }
+
+  /* Tira de Instagram */
+  .coffee-strip {
+    flex-wrap: wrap;
+  }
+
+  .coffee-item {
+    flex: 1 0 50%; /* 2 columnas en pantallas pequeñas */
+    height: 180px;
+  }
+}
+
+/* --- Móviles Pequeños (<= 480px) --- */
+@media screen and (max-width: 480px) {
+  .coffee-item {
+    flex: 1 0 100%; /* 1 columna en teléfonos pequeños */
+    height: 220px;
+  }
 }
